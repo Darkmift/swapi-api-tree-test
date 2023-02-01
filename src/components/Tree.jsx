@@ -1,10 +1,8 @@
-import React, { useState, useId } from 'react';
+import React, { useState } from 'react';
 
 const mapper = (data) => {
   if (Array.isArray(data))
-    return data.map((entry, i) =>
-      entry.name ? entry : { name: [`entry:${i}`], children: entry }
-    );
+    return data.map((entry, i) => (entry.name ? entry : { name: [`entry:${i}`], children: entry }));
   return Object.entries(data).map(([k, v]) => ({ name: k, children: v }));
 };
 const isUrl = (str) =>
@@ -16,7 +14,7 @@ function Tree({ treeData, nestedLevel = 1 }) {
   return (
     <div style={{ marginLeft: nestedLevel * 10 + 'px' }}>
       {mappedData.map((node, i) => (
-        <TreeNode node={node} key={i + useId()} nestedLevel={nestedLevel} />
+        <TreeNode node={node} key={i + nestedLevel} nestedLevel={nestedLevel} />
       ))}
     </div>
   );
