@@ -1,0 +1,12 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app {
+  min-height: 60vh;
+  min-width: 60vw;
+  padding: 2vmin;
+  background-color: rgb(65, 52, 52);
+}
